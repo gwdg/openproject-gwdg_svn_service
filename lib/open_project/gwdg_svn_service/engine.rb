@@ -12,5 +12,13 @@ module OpenProject::GwdgSvnService
              :author_url => 'http://finn.de',
              :requires_openproject => '>= 3.0.0pre13'
 
+    config.to_prepare do 
+      [ 
+         :repositories_helper, :repositories_controller
+      ].each do |sym|
+        require_dependency "open_project/gwdg_svn_service/patches/#{sym}_patch"
+      end
+    end
+
   end
 end
