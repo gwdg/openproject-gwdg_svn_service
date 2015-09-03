@@ -9,7 +9,7 @@ module OpenProject::GwdgSvnService
     include OpenProject::Plugins::ActsAsOpEngine
 
     register 'openproject-gwdg_svn_service',
-             :author_url => 'http://finn.de',
+             :author_url => 'http://www.gwdg.de',
              :requires_openproject => '>= 3.0.0pre13'
 
     config.to_prepare do 

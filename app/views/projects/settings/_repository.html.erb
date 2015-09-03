@@ -26,6 +26,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 See doc/COPYRIGHT.rdoc for more details.
 
 ++#%>
+<%= svn_error_messages_for(@svn_error_messages) %>
+<%= svn_warning_messages_for(@svn_warning_messages) %>
 
 <%= remote_form_for :repository, @repository,
                    :url => { :controller => '/repositories', :action => 'edit', :id => @project },
