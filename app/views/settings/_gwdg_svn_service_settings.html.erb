@@ -1,0 +1,13 @@
+<div class="form--field -required">
+  <%= styled_label_tag("settings[svn_url_prefix]", l(:svn_url_prefix)) %>
+  <%= styled_text_field_tag("settings[svn_url_prefix]",
+      Setting.plugin_openproject_gwdg_svn_service["svn_url_prefix"]) %>
+  <%= content_tag('div', 'file:///, http://, https://, svn://, svn+[tunnelscheme]://', class: 'form--field-instructions') %>
+</div>
+
+<div class="form--field -required">
+  <%= styled_label_tag("settings[svn_repository_root]", l(:svn_repository_root)) %>
+  <%= styled_text_field_tag("settings[svn_repository_root]",
+      Setting.plugin_openproject_gwdg_svn_service["svn_repository_root"]) %>
+  <%= content_tag('div', l(:svn_repository_root_tag), class: 'form--field-instructions') %>
+</div>

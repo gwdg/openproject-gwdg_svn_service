@@ -1,7 +1,7 @@
-<% if svn_warn_message && svn_warn_message.length > 0 %>
+<% if svn_warning_message && svn_warning_message.length > 0 %>
   <div id="svnWarningExplanation">
-    <h2>Warning: Repository found!</h2>
-    <p><%= svn_warn_message %></p>
-    <p>The current repository will be used. Contact the administrator if you want to use an empty repository.</p>
+    <h3><b><%= l(:svn_warn_title_template) %></b></h3>
+    <p><%= l(:svn_warn_message) + svn_warning_message %><br>
+       <%= l(:svn_warn_body_template) %></p>
   </div>
 <% end %>

@@ -26,8 +26,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 See doc/COPYRIGHT.rdoc for more details.
 
 ++#%>
-<%= svn_error_messages_for(@svn_error_messages) %>
-<%= svn_warning_messages_for(@svn_warning_messages) %>
+<%= svn_warning_error_messages_for(@svn_warning_messages, "warning") %>
+<%= svn_warning_error_messages_for(@svn_error_messages, "error") %>
 
 <%= remote_form_for :repository, @repository,
                    :url => { :controller => '/repositories', :action => 'edit', :id => @project },
@@ -61,6 +61,6 @@ See doc/COPYRIGHT.rdoc for more details.
   <hr class="form--separator">
 
   <%= f.button((@repository.nil? || @repository.new_record?) ? l(:button_create) : l(:button_save),
-      :disabled => @repository.nil?,
+      :disabled => @repository.nil? || (!@repository.new_record? && @repository.scm_name == 'Subversion'),
       class: 'button -highlight -with-icon icon-yes') %>
 <% end %>

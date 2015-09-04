@@ -1,0 +1,13 @@
+en:
+  svn_url_prefix: "URL prefix"
+  svn_repository_root: "Repositories root path"
+  svn_repository_root_tag: "path/to/repositories/"
+  
+  svn_warn_title_template: "Warning: Repository found!"
+  svn_warn_message: "A repository already exists for project"
+  svn_warn_body_template: "The current repository will be used. Contact the administrator if you want to use an empty repository."
+
+  svn_error_title_template: "Error: Repository could not be created!"
+  svn_error_message: "There was an error when creating the repository for project"
+  svn_error_body_template: "Contact the administrator if the error persists."
+  

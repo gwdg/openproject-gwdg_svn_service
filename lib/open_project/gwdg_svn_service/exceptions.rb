@@ -29,29 +29,29 @@
 module OpenProject
   module GwdgSvnService
     module Exceptions
-      # Parent SCM exception class
-      class ScmError < StandardError
+      # Parent SVN exception class
+      class SvnError < StandardError
+        attr_reader :project
+        
       end
 
-      # Exception marking an error in the repository teardown process
-      class RepositoryExists < ScmError
-        attr_reader :message
+      # Exception for warning messages
+      class RepositoryExists < SvnError
         attr_reader :url
         
-        def initialize(message, url)
-          @message = message
+        def initialize(project, url)
+          @project =  project
           @url = url
         end
       end
 
-      # Exception marking an error in the execution of a local command.
-      class RepositoryNotCreated < ScmError
-        attr_reader :message
+      # Exception for error messages
+      class RepositoryNotCreated < SvnError
         attr_reader :program
         attr_reader :stderr
         
-        def initialize(message, program, stderr)
-          @message = message
+        def initialize(project, program, stderr)
+          @project =  project
           @program = program
           @stderr = stderr
         end

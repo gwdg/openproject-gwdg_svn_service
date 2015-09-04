@@ -8,9 +8,19 @@ module OpenProject::GwdgSvnService
 
     include OpenProject::Plugins::ActsAsOpEngine
 
+    def self.settings
+      {
+        default: { 'svn_url_prefix' => nil,
+                   'svn_repository_root' => nil
+        },
+        partial: 'settings/gwdg_svn_service_settings.html.erb'
+      }
+    end
+
     register 'openproject-gwdg_svn_service',
              :author_url => 'http://www.gwdg.de',
-             :requires_openproject => '>= 3.0.0pre13'
+             :requires_openproject => '>= 3.0.0pre13',
+             settings: settings do end
 
     config.to_prepare do 
       [ 

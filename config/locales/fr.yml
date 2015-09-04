@@ -1,0 +1,12 @@
+fr:
+  svn_url_prefix: "Préfixe"
+  svn_repository_root: "Chemin racine des dépôts"
+  svn_repository_root_tag: "chemin/racine/des/depots/"
+  
+  svn_warn_title_template: "Attention: Un dépôt préexistant a été trouvé!"
+  svn_warn_message: "Un dépôt existe déjà pour le projet"
+  svn_warn_body_template: "Le dépôt existant sera utilisé. Contactez l'administrateur si vous voulez créer un dépôt vide."
+
+  svn_error_title_template: "Erreur: Le dépôt n'a pas pu être créé!"
+  svn_error_message: "Une erreur est survenue lors de la création du dépôt pour le projet"
+  svn_error_body_template: "Contactez l'administrateur si le problème persiste."

@@ -1,7 +1,7 @@
 <% if svn_error_message && svn_error_message.length > 0 %>
-  <div id="svnErrorExplanation">
-    <h2>Error: Repository could not be created!</h2>
-    <p><%= svn_error_message %></p>
-    <p>Contact the administrator if the error persists.</p>
+  <div class="errorExplanation" id="errorExplanation" role="alert">
+    <%= l(:svn_error_title_template) %><br><br>
+    <%= l(:svn_error_message) + svn_error_message %><br>
+    <%= l(:svn_error_body_template) %><br>
   </div>
 <% end %>

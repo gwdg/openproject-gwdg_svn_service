@@ -13,10 +13,15 @@ module OpenProject::GwdgSvnService
         
       module InstanceMethods
         def subversion_field_tags_with_gwdg_svn_service(form, repository)
-          @test = repository && !repository.root_url.blank?
-          logger.debug "\n*****\nGWDG :\nrepositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(GWDG GWDG GWDG GWDG #{@test})\n*****\n"
-          logger.debug "\n*****\nGWDG :\nrepositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(GWDG GWDG GWDG GWDG #{@repository.inspect})\n*****\n"
-          if repository && !repository.url.blank? # If repository exists in DB, it will show the fields
+          logger.debug "OpenProject GWDG Subversion Service: repositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(Entry point)"
+          logger.debug "OpenProject GWDG Subversion Service: repositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(#{@repository.inspect})"
+          
+          # If repository exists in DB, it will show the fields
+          if repository && !repository.url.blank?
+            logger.debug "OpenProject GWDG Subversion Service: repositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(Repository exists in database)"
+            
+            # Create the URL fields of the repository stored in database
+            #BEGIN: This is a copy from the original "ef subversion_field_tags(form, repository)" in repositories_helper.rb
             url = content_tag('div', class: 'form--field') do
               form.text_field(:url,
                               size: 60,
@@ -26,23 +31,30 @@ module OpenProject::GwdgSvnService
                           'file:///, http://, https://, svn://, svn+[tunnelscheme]://',
                           class: 'form--field-instructions')
             end
-          else # If repository does not exist, it will show nothing
-            url = ''
+            #END: This is a copy from the original "ef subversion_field_tags(form, repository)" in repositories_helper.rb
+
+            # Copy the form fields
+            url_form_fields = url
+            
+          # If repository does not exist, it will show nothing
+          else
+            logger.debug "OpenProject GWDG Subversion Service: repositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(Repository does not exist in database)"
+            
+            # Sets the repository URL form fields to empty
+            url_form_fields = ''
           end
+
+          logger.debug "OpenProject GWDG Subversion Service: repositories_helper_patch.rb - subversion_field_tags_with_gwdg_svn_service\n(Exit point)"
           
-          # Returns the code to show the url fields of the repository
-          url
-        end
+          # Return the the URL form fields of the repository to be shown
+          url_form_fields
+        end #subversion_field_tags_with_gwdg_svn_service
 
-
-        def svn_error_messages_for(message)
-          render(:partial => 'projects/settings/svn_error_messages',
-                :locals => {:svn_error_message => message})
-        end
-
-        def svn_warning_messages_for(message)
-          render(:partial => 'projects/settings/svn_warning_messages',
-                :locals => {:svn_warn_message => message})
+        
+        # Render the warning or error messages in case the repository was not created
+        def svn_warning_error_messages_for(message, type)
+          render(:partial => "projects/settings/svn_#{type}_messages",
+                :locals => {"svn_#{type}_message".to_sym => message})
         end
         
       end

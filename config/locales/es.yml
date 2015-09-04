@@ -1,0 +1,12 @@
+es:
+  svn_url_prefix: "Prefijo"
+  svn_repository_root: "Ruta raíz de los repositorios"
+  svn_repository_root_tag: "ruta/de/los/repositorios/"
+  
+  svn_warn_title_template: "Atención: ¡Se encontró un repositorio previo!"
+  svn_warn_message: "Ya existe un repositorio para el proyecto"
+  svn_warn_body_template: "Se utilizará el repositorio existente. Contacte al administrador si desea un repositorio vacío."
+
+  svn_error_title_template: "Error: ¡El repositorio no pudo ser creado!"
+  svn_error_message: "Ocurrió un error al crear el repositorio para el proyecto"
+  svn_error_body_template: "Contacte al administrador si el problema persiste."
