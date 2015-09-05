@@ -1,12 +1,12 @@
 de:
-  svn_url_prefix: "DE:URL prefix"
-  svn_repository_root: "DE:Repositories root path"
-  svn_repository_root_tag: "DE:path/to/repositories/"
+  svn_url_prefix: "URL Präfix"
+  svn_repository_root: "Stammpfad Projektarchive"
+  svn_repository_root_tag: "Stammpfad/Projektarchive/"
   
-  svn_warn_title_template: "DE:Warning: Repository found!"
-  svn_warn_message: "DE:A repository already exists for project"
-  svn_warn_body_template: "DE:The current repository will be used. Contact the administrator if you want to use an empty repository."
+  svn_warn_title_template: "Warnung: Projektarchiv gefunden!"
+  svn_warn_message: "Das Projektarchiv existiert bereits für das Projekt"
+  svn_warn_body_template: "Das existierende Projektarchiv wird verwendet. Kontaktieren Sie den Administrator wenn Sie ein leeres Projektarchiv verwenden wollen."
 
-  svn_error_title_template: "DE:Error: Repository could not be created!"
-  svn_error_message: "DE:There was an error when creating the repository for project"
-  svn_error_body_template: "DE:Contact the administrator if the error persists."
+  svn_error_title_template: "Fehler: Projektarchiv konnte nicht erstellt werden!"
+  svn_error_message: "Es gab einen Fehler beim Erstellen des Projektarchivs"
+  svn_error_body_template: "Kontaktieren Sie den Administrator wenn das Problem fortbesteht."
